@@ -1,6 +1,3 @@
-# NetCompression
-Asorted Compression Libraries, Examples and Benchmarks
-
 ## LZMA Library (.NET Standard 2.0)
 Example Projects target .NET Framework 4.8
 

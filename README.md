@@ -1,5 +1,5 @@
-## LZMA Library (.NET Standard 2.0)
-Example Projects target .NET Framework 4.8
+## LZMA Library
+Library target .NET Standard 2.0 and the example projects target .NET Framework 4.8
 
 ### Features:
 - Uses LZMA SDK https://www.7-zip.org/sdk.html

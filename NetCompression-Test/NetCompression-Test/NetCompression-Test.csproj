@@ -1,0 +1,14 @@
+﻿ <Project Sdk="Microsoft.NET.Sdk">
+    
+   <PropertyGroup>
+     <OutputType>Exe</OutputType>
+		<LangVersion>9.0</LangVersion>
+		<TargetFrameworks>net5.0;net6.0;netcoreapp3.1;net48</TargetFrameworks>
+		<RollForward>Major</RollForward>
+   </PropertyGroup>
+    
+   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
+     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+   </PropertyGroup>
+    
+ </Project>

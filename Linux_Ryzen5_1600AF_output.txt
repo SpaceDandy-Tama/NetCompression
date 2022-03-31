@@ -1,0 +1,156 @@
+LZMA Multithreaded
+Original text is 35215 bytes.
+Original jpeg is 341890 bytes.
+Original tga is 54000044 bytes.
+Original wav is 36096694 bytes.
+Compressing Text file took 0.0656974 seconds multi threaded(12). 14068 bytes. 39.94%
+Decompressing Text file took 0.0155707 seconds. 35215 bytes.
+Compressing Jpeg file took 0.0527517 seconds multi threaded(12). 344041 bytes. 100.62%
+Decompressing Jpeg file took 0.0517146 seconds. 341890 bytes.
+Compressing Raw tga file took 6.3725049 seconds multi threaded(24). 19280527 bytes. 35.7%
+Decompressing Raw tga file took 2.1281482 seconds. 54000044 bytes.
+Compressing Wav file took 2.7366936 seconds multi threaded(12). 34070937 bytes. 94.38%
+Decompressing Wav file took 3.8482319 seconds. 36096694 bytes.
+Finished in 15.271313 seconds.
+LZMA Singlethreaded
+Original text is 35215 bytes.
+Original jpeg is 341890 bytes.
+Original tga is 54000044 bytes.
+Original wav is 36096694 bytes.
+Compressing Text file took 0.0437991 seconds. 5826 bytes. 16.54%
+Decompressing Text file took 0.0126053 seconds. 35215 bytes.
+Compressing Jpeg file took 0.1125514 seconds. 343372 bytes. 100.43%
+Decompressing Jpeg file took 0.0382406 seconds. 341890 bytes.
+Compressing Raw tga file took 44.9595297 seconds. 18998967 bytes. 35.18%
+Decompressing Raw tga file took 1.9672131 seconds. 54000044 bytes.
+Compressing Wav file took 17.4018393 seconds. 34132421 bytes. 94.55%
+Decompressing Wav file took 3.8454978 seconds. 36096694 bytes.
+Finished in 68.3812763 seconds.
+Deflate Optimal
+Algorithm: Deflate
+Level: Optimal
+Original text is 35215 bytes.
+Original jpeg is 341890 bytes.
+Original tga is 54000044 bytes.
+Original wav is 36096694 bytes.
+Compressing Text file took 0.0027929 seconds. 6103 bytes. 17.33%
+Decompressing Text file took 0.0012328 seconds. 35215 bytes.
+Compressing Jpeg file took 0.0095915 seconds. 341477 bytes. 99.87%
+Decompressing Jpeg file took 0.000734 seconds. 341890 bytes.
+Compressing Raw tga file took 2.7717425 seconds. 23077960 bytes. 42.73%
+Decompressing Raw tga file took 0.2224414 seconds. 54000044 bytes.
+Compressing Wav file took 1.0960742 seconds. 34903721 bytes. 96.69%
+Decompressing Wav file took 0.1569895 seconds. 36096694 bytes.
+Finished in 4.2615988 seconds.
+Deflate Fastest
+Algorithm: Deflate
+Level: Fastest
+Original text is 35215 bytes.
+Original jpeg is 341890 bytes.
+Original tga is 54000044 bytes.
+Original wav is 36096694 bytes.
+Compressing Text file took 0.002454 seconds. 9187 bytes. 26.08%
+Decompressing Text file took 0.0012758 seconds. 35215 bytes.
+Compressing Jpeg file took 0.0091569 seconds. 341403 bytes. 99.85%
+Decompressing Jpeg file took 0.0008571 seconds. 341890 bytes.
+Compressing Raw tga file took 0.8760692 seconds. 24378463 bytes. 45.14%
+Decompressing Raw tga file took 0.2171518 seconds. 54000044 bytes.
+Compressing Wav file took 1.0377749 seconds. 34946625 bytes. 96.81%
+Decompressing Wav file took 0.1577652 seconds. 36096694 bytes.
+Finished in 2.3025049 seconds.
+Gzip Optimal
+Algorithm: Gzip
+Level: Optimal
+Original text is 35215 bytes.
+Original jpeg is 341890 bytes.
+Original tga is 54000044 bytes.
+Original wav is 36096694 bytes.
+Compressing Text file took 0.0028859 seconds. 6121 bytes. 17.38%
+Decompressing Text file took 0.0012621 seconds. 35215 bytes.
+Compressing Jpeg file took 0.0097622 seconds. 341495 bytes. 99.88%
+Decompressing Jpeg file took 0.0009687 seconds. 341890 bytes.
+Compressing Raw tga file took 2.8107516 seconds. 23077978 bytes. 42.73%
+Decompressing Raw tga file took 0.2601674 seconds. 54000044 bytes.
+Compressing Wav file took 1.1163557 seconds. 34903739 bytes. 96.69%
+Decompressing Wav file took 0.1824849 seconds. 36096694 bytes.
+Finished in 4.3846385 seconds.
+Gzip Fastest
+Algorithm: Gzip
+Level: Fastest
+Original text is 35215 bytes.
+Original jpeg is 341890 bytes.
+Original tga is 54000044 bytes.
+Original wav is 36096694 bytes.
+Compressing Text file took 0.0025286 seconds. 9205 bytes. 26.13%
+Decompressing Text file took 0.0012666 seconds. 35215 bytes.
+Compressing Jpeg file took 0.0093911 seconds. 341421 bytes. 99.86%
+Decompressing Jpeg file took 0.0011079 seconds. 341890 bytes.
+Compressing Raw tga file took 0.9112673 seconds. 24378481 bytes. 45.14%
+Decompressing Raw tga file took 0.2549278 seconds. 54000044 bytes.
+Compressing Wav file took 1.06392 seconds. 34946643 bytes. 96.81%
+Decompressing Wav file took 0.1834035 seconds. 36096694 bytes.
+Finished in 2.4278128 seconds.
+Brotli Optimal
+Algorithm: Brotli
+Level: Optimal
+Original text is 35215 bytes.
+Original jpeg is 341890 bytes.
+Original tga is 54000044 bytes.
+Original wav is 36096694 bytes.
+Compressing Text file took 0.0587131 seconds. 5494 bytes. 15.6%
+Decompressing Text file took 0.001649 seconds. 35215 bytes.
+Compressing Jpeg file took 0.2042585 seconds. 341895 bytes. 100%
+Decompressing Jpeg file took 0.0002917 seconds. 341890 bytes.
+Compressing Raw tga file took 108.0130878 seconds. 19151011 bytes. 35.46%
+Decompressing Raw tga file took 0.2469435 seconds. 54000044 bytes.
+Compressing Wav file took 106.6476723 seconds. 32464588 bytes. 89.93%
+Decompressing Wav file took 0.3344831 seconds. 36096694 bytes.
+Finished in 215.507099 seconds.
+Brotli Fastest
+Algorithm: Brotli
+Level: Fastest
+Original text is 35215 bytes.
+Original jpeg is 341890 bytes.
+Original tga is 54000044 bytes.
+Original wav is 36096694 bytes.
+Compressing Text file took 0.0028936 seconds. 8241 bytes. 23.4%
+Decompressing Text file took 0.0015846 seconds. 35215 bytes.
+Compressing Jpeg file took 0.0007794 seconds. 341532 bytes. 99.89%
+Decompressing Jpeg file took 0.0007323 seconds. 341890 bytes.
+Compressing Raw tga file took 0.2892015 seconds. 24402050 bytes. 45.18%
+Decompressing Raw tga file took 0.2464799 seconds. 54000044 bytes.
+Compressing Wav file took 0.1316021 seconds. 34947325 bytes. 96.81%
+Decompressing Wav file took 0.206098 seconds. 36096694 bytes.
+Finished in 0.8793714 seconds.
+ZLib Optimal
+Algorithm: ZLib
+Level: Optimal
+Original text is 35215 bytes.
+Original jpeg is 341890 bytes.
+Original tga is 54000044 bytes.
+Original wav is 36096694 bytes.
+Compressing Text file took 0.002595 seconds. 6109 bytes. 17.34%
+Decompressing Text file took 0.0014194 seconds. 35215 bytes.
+Compressing Jpeg file took 0.009925 seconds. 341483 bytes. 99.88%
+Decompressing Jpeg file took 0.0008461 seconds. 341890 bytes.
+Compressing Raw tga file took 2.7917143 seconds. 23077966 bytes. 42.73%
+Decompressing Raw tga file took 0.2397112 seconds. 54000044 bytes.
+Compressing Wav file took 1.1070417 seconds. 34903727 bytes. 96.69%
+Decompressing Wav file took 0.1685395 seconds. 36096694 bytes.
+Finished in 4.3217922 seconds.
+ZLib Fastest
+Algorithm: ZLib
+Level: Fastest
+Original text is 35215 bytes.
+Original jpeg is 341890 bytes.
+Original tga is 54000044 bytes.
+Original wav is 36096694 bytes.
+Compressing Text file took 0.0021302 seconds. 9193 bytes. 26.1%
+Decompressing Text file took 0.0013075 seconds. 35215 bytes.
+Compressing Jpeg file took 0.0092687 seconds. 341409 bytes. 99.85%
+Decompressing Jpeg file took 0.0009898 seconds. 341890 bytes.
+Compressing Raw tga file took 0.8934684 seconds. 24378469 bytes. 45.14%
+Decompressing Raw tga file took 0.2346689 seconds. 54000044 bytes.
+Compressing Wav file took 1.0511115 seconds. 34946631 bytes. 96.81%
+Decompressing Wav file took 0.1693551 seconds. 36096694 bytes.
+Finished in 2.3623001 seconds.

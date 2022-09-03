@@ -96,8 +96,8 @@ namespace System.IO.Compression
         }
         public static MemoryStream Compress(byte[] srcBuffer, CompressionLevel lvl, CompressionAlgorithm algorithm, int index = 0, int count = -1)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count);
-            return Compress(srcStream, lvl, algorithm);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count))
+                return Compress(srcStream, lvl, algorithm);
         }
         public static async Task<MemoryStream> CompressAsync(Stream srcStream, CompressionLevel lvl, CompressionAlgorithm algorithm)
         {
@@ -123,8 +123,8 @@ namespace System.IO.Compression
         }
         public static async Task<MemoryStream> CompressAsync(byte[] srcBuffer, CompressionLevel lvl, CompressionAlgorithm algorithm, int index = 0, int count = -1)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count);
-            return await CompressAsync(srcStream, lvl, algorithm);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count))
+                return await CompressAsync(srcStream, lvl, algorithm);
         }
         public static MemoryStream Decompress(Stream srcStream, CompressionAlgorithm algorithm)
         {
@@ -147,8 +147,8 @@ namespace System.IO.Compression
         }
         public static MemoryStream Decompress(byte[] srcBuffer, CompressionAlgorithm algorithm)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer);
-            return Decompress(srcStream, algorithm);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer))
+                return Decompress(srcStream, algorithm);
         }
         public static async Task<MemoryStream> DecompressAsync(Stream srcStream, CompressionAlgorithm algorithm)
         {
@@ -171,8 +171,8 @@ namespace System.IO.Compression
         }
         public static async Task<MemoryStream> DecompressAsync(byte[] srcBuffer, CompressionAlgorithm algorithm)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer);
-            return await DecompressAsync(srcStream, algorithm);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer))
+                return await DecompressAsync(srcStream, algorithm);
         }
         #endregion
 
@@ -195,13 +195,13 @@ namespace System.IO.Compression
         }
         private static MemoryStream CompressDeflate(byte[] srcBuffer, CompressionLevel lvl, int index = 0, int count = -1)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count);
-            return CompressDeflate(srcStream, lvl);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count))
+                return CompressDeflate(srcStream, lvl);
         }
         private static async Task<MemoryStream> CompressDeflateAsync(byte[] srcBuffer, CompressionLevel lvl, int index = 0, int count = -1)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count);
-            return await CompressDeflateAsync(srcStream, lvl);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count))
+                return await CompressDeflateAsync(srcStream, lvl);
         }
         private static MemoryStream DecompressDeflate(Stream srcStream)
         {
@@ -221,13 +221,13 @@ namespace System.IO.Compression
         }
         private static MemoryStream DecompressDeflate(byte[] srcBuffer)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer);
-            return DecompressDeflate(srcStream);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer))
+                return DecompressDeflate(srcStream);
         }
         private static async Task<MemoryStream> DecompressDeflateAsync(byte[] srcBuffer)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer);
-            return await DecompressDeflateAsync(srcStream);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer))
+                return await DecompressDeflateAsync(srcStream);
         }
         #endregion
 
@@ -252,13 +252,13 @@ namespace System.IO.Compression
         }
         private static MemoryStream CompressGzip(byte[] srcBuffer, CompressionLevel lvl, int index = 0, int count = -1)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count);
-            return CompressGzip(srcStream, lvl);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count))
+                return CompressGzip(srcStream, lvl);
         }
         private static async Task<MemoryStream> CompressGzipAsync(byte[] srcBuffer, CompressionLevel lvl, int index = 0, int count = -1)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count);
-            return await CompressGzipAsync(srcStream, lvl);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count))
+                return await CompressGzipAsync(srcStream, lvl);
         }
         private static MemoryStream DecompressGzip(Stream srcStream)
         {
@@ -278,13 +278,13 @@ namespace System.IO.Compression
         }
         private static MemoryStream DecompressGzip(byte[] srcBuffer)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer);
-            return DecompressGzip(srcStream);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer))
+                return DecompressGzip(srcStream);
         }
         private static async Task<MemoryStream> DecompressGzipAsync(byte[] srcBuffer)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer);
-            return await DecompressGzipAsync(srcStream);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer))
+                return await DecompressGzipAsync(srcStream);
         }
         #endregion
 
@@ -308,13 +308,13 @@ namespace System.IO.Compression
         }
         private static MemoryStream CompressBrotli(byte[] srcBuffer, CompressionLevel lvl, int index = 0, int count = -1)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count);
-            return CompressBrotli(srcStream, lvl);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count))
+                return CompressBrotli(srcStream, lvl);
         }
         private static async Task<MemoryStream> CompressBrotliAsync(byte[] srcBuffer, CompressionLevel lvl, int index = 0, int count = -1)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count);
-            return await CompressBrotliAsync(srcStream, lvl);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count))
+                return await CompressBrotliAsync(srcStream, lvl);
         }
         private static MemoryStream DecompressBrotli(Stream srcStream)
         {
@@ -334,13 +334,13 @@ namespace System.IO.Compression
         }
         private static MemoryStream DecompressBrotli(byte[] srcBuffer)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer);
-            return DecompressBrotli(srcStream);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer))
+                return DecompressBrotli(srcStream);
         }
         private static async Task<MemoryStream> DecompressBrotliAsync(byte[] srcBuffer)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer);
-            return await DecompressBrotliAsync(srcStream);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer))
+                return await DecompressBrotliAsync(srcStream);
         }
 #endif
         #endregion
@@ -365,13 +365,13 @@ namespace System.IO.Compression
         }
         private static MemoryStream CompressZLib(byte[] srcBuffer, CompressionLevel lvl, int index = 0, int count = -1)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count);
-            return CompressZLib(srcStream, lvl);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count))
+                return CompressZLib(srcStream, lvl);
         }
         private static async Task<MemoryStream> CompressZLibAsync(byte[] srcBuffer, CompressionLevel lvl, int index = 0, int count = -1)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count);
-            return await CompressZLibAsync(srcStream, lvl);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer, index, count < 0 ? srcBuffer.Length : count))
+                return await CompressZLibAsync(srcStream, lvl);
         }
         private static MemoryStream DecompressZLib(Stream srcStream)
         {
@@ -391,13 +391,13 @@ namespace System.IO.Compression
         }
         private static MemoryStream DecompressZLib(byte[] srcBuffer)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer);
-            return DecompressZLib(srcStream);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer))
+                return DecompressZLib(srcStream);
         }
         private static async Task<MemoryStream> DecompressZLibAsync(byte[] srcBuffer)
         {
-            using MemoryStream srcStream = new MemoryStream(srcBuffer);
-            return await DecompressZLibAsync(srcStream);
+            using (MemoryStream srcStream = new MemoryStream(srcBuffer))
+                return await DecompressZLibAsync(srcStream);
         }
 #endif
         #endregion

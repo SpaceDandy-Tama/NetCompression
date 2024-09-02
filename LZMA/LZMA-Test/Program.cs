@@ -28,6 +28,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 using SevenZip;
+using System.Collections.Generic;
 
 namespace LZMA_Test
 {
@@ -35,6 +36,49 @@ namespace LZMA_Test
     {
         static async Task Main(string[] args)
         {
+            Stopwatch stopwatch = new Stopwatch();
+
+            Console.WriteLine("Enter folder name: ");
+            string path = Console.ReadLine();
+
+            List<string> files = new List<string>();
+
+            files.AddRange(System.IO.Directory.EnumerateFiles(path));
+
+            using (StreamWriter sw = new StreamWriter($"output {path} single-threaded.txt"))
+            {
+                await Task.Delay(1000);
+
+                foreach (string file in files)
+                {
+                    await Task.Delay(1000);
+
+                    byte[] bytes = File.ReadAllBytes(file);
+                    string info1 = $"{Path.GetFileName(file)}: ({bytes.Length} bytes)";
+
+                    stopwatch.Start();
+                    byte[] bytesLZMA = await LZMA.CompressAsync(bytes);
+                    stopwatch.Stop();
+                    decimal ratio = Math.Truncate(10000m * ((decimal)bytesLZMA.Length / bytes.Length)) / 100m;
+                    string info2 = $"Compressed in {stopwatch.Elapsed.TotalSeconds}s, down to {ratio}%";
+                    stopwatch.Restart();
+                    byte[] bytesFullCircle = await LZMA.DecompressMultiChunkAsync(bytesLZMA);
+                    stopwatch.Stop();
+                    string info3 = $"Decompressed in {stopwatch.Elapsed.TotalSeconds} seconds.";
+
+                    Console.WriteLine(info1);
+                    Console.WriteLine(info2);
+                    Console.WriteLine(info3);
+                    Console.WriteLine("");
+
+                    sw.WriteLine(info1);
+                    sw.WriteLine(info2);
+                    sw.WriteLine(info3);
+                    sw.WriteLine("");
+                }
+            }
+
+            /*
             byte[] textBytes = File.ReadAllBytes("../../../../Resources/Lorem Ipsum.txt");
             Console.WriteLine($"Original text is {textBytes.Length} bytes.");
 
@@ -123,6 +167,8 @@ namespace LZMA_Test
             wavBytesFullCircle = null;
 
             Console.WriteLine($"Finished in {totalTimeSpent.TotalSeconds} seconds.");
+
+            */
 
             if (args != null && args.Length > 0 && args[0] == "-s")
                 return;

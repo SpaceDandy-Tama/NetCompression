@@ -28,13 +28,81 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 
 using SevenZip;
+using System.Collections.Generic;
 
 namespace LZMA_ThreadedTest
 {
     class Program
     {
+        
+
         static async Task Main(string[] args)
         {
+            Console.WriteLine("Enter folder name: ");
+            string path = Console.ReadLine();
+
+            byte[] testThreads = new byte[] { 1, 2, 4, 6, 8, 12 };
+            
+
+            List<string> files = new List<string>();
+
+            files.AddRange(System.IO.Directory.EnumerateFiles(path));
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            stopwatch.Stop();
+
+            using (StreamWriter sw = new StreamWriter($"{path} test log.txt"))
+            {
+                foreach (string file in files)
+                {
+                    byte[] bytes = File.ReadAllBytes(file);
+                    string info = $"{Path.GetFileName(file)}: ({bytes.Length} bytes)";
+                    Console.WriteLine(info);
+                    sw.WriteLine(info);
+
+                    byte processorCount = testThreads[0];
+
+                    for (int i = 0; i < testThreads.Length; i++)
+                    {
+                        System.GC.Collect();
+                        System.GC.WaitForPendingFinalizers();
+                        System.GC.Collect();
+                        System.GC.WaitForPendingFinalizers();
+
+                        await System.Threading.Tasks.Task.Delay(100 * processorCount);
+
+                        processorCount = testThreads[i];
+
+                        stopwatch.Restart();
+                        byte[] bytesLZMA;
+                        if (processorCount > 1)
+                            bytesLZMA = await LZMA.CompressMultiThreadAsync(bytes, processorCount);
+                        else
+                            bytesLZMA = await LZMA.CompressAsync(bytes);
+                        stopwatch.Stop();
+                        decimal ratio = Math.Truncate(10000m * ((decimal)bytesLZMA.Length / bytes.Length)) / 100m;
+                        string info1 = $"Compressed in {stopwatch.Elapsed.TotalSeconds}";
+                        stopwatch.Restart();
+                        byte[] bytesFullCircle = await LZMA.DecompressMultiChunkAsync(bytesLZMA);
+                        stopwatch.Stop();
+                        info1 += $" and decompressed in {stopwatch.Elapsed.TotalSeconds} seconds. using {processorCount} threads, down to {ratio}%";
+
+                        Console.WriteLine(info1);
+                        sw.WriteLine(info1);
+
+                        bytesLZMA = null;
+                        bytesFullCircle = null;
+                    }
+
+                    Console.WriteLine("");
+                    sw.WriteLine("");
+                    bytes = null;
+
+                }
+            }
+
+            /*
             byte[] textBytes = File.ReadAllBytes("../../../../Resources/Lorem Ipsum.txt");
             Console.WriteLine($"Original text is {textBytes.Length} bytes.");
 
@@ -130,11 +198,15 @@ namespace LZMA_ThreadedTest
             wavBytesFullCircle = null;
 
             Console.WriteLine($"Finished in {totalTimeSpent.TotalSeconds} seconds.");
+            */
 
             if (args != null && args.Length > 0 && args[0] == "-s")
                 return;
             else
+            {
+                Console.WriteLine("Test Finished, press any key to exit...");
                 Console.Read();
+            }
         }
     }
 }

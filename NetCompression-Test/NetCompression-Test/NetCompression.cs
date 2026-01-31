@@ -181,7 +181,7 @@ namespace System.IO.Compression
         {
             MemoryStream stream = new MemoryStream();
             using (DeflateStream compressor = new DeflateStream(stream, lvl, true))
-                srcStream.CopyToAsync(compressor);
+                srcStream.CopyTo(compressor);
             CompressResults(CompressionAlgorithm.Deflate, srcStream.Length, stream);
             return stream;
         }
@@ -207,7 +207,7 @@ namespace System.IO.Compression
         {
             MemoryStream stream = new MemoryStream();
             using (DeflateStream decompressor = new DeflateStream(srcStream, CompressionMode.Decompress, true))
-                decompressor.CopyToAsync(stream);
+                decompressor.CopyTo(stream);
             DecompressResults(CompressionAlgorithm.Deflate, srcStream.Length, stream);
             return stream;
         }
@@ -236,7 +236,7 @@ namespace System.IO.Compression
         {
             MemoryStream stream = new MemoryStream();
             using (GZipStream compressor = new GZipStream(stream, lvl, true))
-                srcStream.CopyToAsync(compressor);
+                srcStream.CopyTo(compressor);
             CompressResults(CompressionAlgorithm.Gzip, srcStream.Length, stream);
             return stream;
 
@@ -264,7 +264,7 @@ namespace System.IO.Compression
         {
             MemoryStream stream = new MemoryStream();
             using (GZipStream decompressor = new GZipStream(srcStream, CompressionMode.Decompress, true))
-                decompressor.CopyToAsync(stream);
+                decompressor.CopyTo(stream);
             DecompressResults(CompressionAlgorithm.Gzip, srcStream.Length, stream);
             return stream;
         }
@@ -320,7 +320,7 @@ namespace System.IO.Compression
         {
             MemoryStream stream = new MemoryStream();
             using (BrotliStream decompressor = new BrotliStream(srcStream, CompressionMode.Decompress, true))
-                decompressor.CopyToAsync(stream);
+                decompressor.CopyTo(stream);
             DecompressResults(CompressionAlgorithm.Brotli, srcStream.Length, stream);
             return stream;
         }
@@ -377,7 +377,7 @@ namespace System.IO.Compression
         {
             MemoryStream stream = new MemoryStream();
             using (ZLibStream decompressor = new ZLibStream(srcStream, CompressionMode.Decompress, true))
-                decompressor.CopyToAsync(stream);
+                decompressor.CopyTo(stream);
             DecompressResults(CompressionAlgorithm.ZLib, srcStream.Length, stream);
             return stream;
         }
